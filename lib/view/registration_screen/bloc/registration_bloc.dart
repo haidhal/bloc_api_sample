@@ -14,7 +14,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
       final url =
           Uri.parse("https://freeapi.luminartechnohub.com/registration/");
       try {
-        final response =await http.post(url, body: {
+        final response = await http.post(url, body: {
           "name": "${event.name}",
           "phone": "${event.phone}",
           "place": "${event.place}",
@@ -22,9 +22,9 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
           "email": "${event.email}",
           "password": "${event.password}",
         });
-        if(response.statusCode == 200){
-         log(response.body.toString());
-         emit(RegistrationLoadedState()) ;
+        if (response.statusCode == 200) {
+          log(response.body.toString());
+          emit(RegistrationSuccessState());
         }
       } catch (e) {
         emit(RegistrationErrorState(errorMessage: e.toString()));

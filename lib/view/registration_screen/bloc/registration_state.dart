@@ -11,7 +11,7 @@ final class RegistrationInitialState extends RegistrationState {}
 
 final class RegistrationLoadingState extends RegistrationState {}
 
-final class RegistrationLoadedState extends RegistrationState {}
+final class RegistrationSuccessState extends RegistrationState {}
 
 final class RegistrationErrorState extends RegistrationState {
   String errorMessage;
